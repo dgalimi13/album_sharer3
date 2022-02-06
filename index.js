@@ -1,4 +1,4 @@
-const endPoint = "http://127.0.0.1:3000/api/v1/albums"
+const endPoint = "http://localhost:3000/api/v1/albums"
 
 document.addEventListener('DOMContentLoaded', () => {
     getAlbums()
@@ -26,3 +26,18 @@ function getAlbums() {
         })
     })
 }
+
+function createFormHandler(e) {
+    e.preventDefault()
+    const nameInput = document.querySelector('#input-name').value
+    const descriptionInput = document.querySelector('#input-description').value
+    const artistInput = document.querySelector('#input-artist').value
+    
+    const genreId = parseInt(document.querySelector('genres').value)
+    postFetch(nameInput, artistInput, descriptionInput, genreId)
+}
+
+// function postFetch(name, artist, description, genre_id) {
+//     console.log(name, artist, description, genre_id)
+
+// }
