@@ -7,6 +7,7 @@ class Api::V1::AlbumsController < ApplicationController
 
     def create
         album = Album.new(album_params)
+        byebug
         if album.save
             render json: album, status: :accepted
         else

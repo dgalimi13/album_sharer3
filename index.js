@@ -38,6 +38,18 @@ function createFormHandler(e) {
 }
 
 function postFetch(name, artist, description, genre_id) {
-    console.log(name, artist, description, genre_id)
-
+    fetch(endPoint, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            name: name,
+            description: description,
+            artist: artist,
+            genre_id: genre_id
+        })
+    })
+    .then(response => response.json())
+    .then(album => {
+        console.log(album);
+    })
 }
