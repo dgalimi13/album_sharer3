@@ -16,7 +16,7 @@ function getAlbums() {
         albums.data.forEach(album => {
             
             let newAlbum = new Album(album, album.attributes)
-            render(album)
+            document.querySelector("#album-container").innerHTML += newAlbum.render()
         })
     })
 }
