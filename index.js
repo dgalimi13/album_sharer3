@@ -21,18 +21,6 @@ function getAlbums() {
     })
 }
 
-function render(album) {
-    const albumMarkup = `
-    <div data-id=${album.id}>
-    <p>${album.attributes.name}</p>
-    <h3>${album.attributes.artist}</h3>
-    <p>${album.attributes.genre.name}</p>
-    </div>
-    <br><br>`;
-
-    document.querySelector('#album-container').innerHTML += albumMarkup
-}
-
 function createFormHandler(e) {
     e.preventDefault()
     const nameInput = document.querySelector('#input-name').value

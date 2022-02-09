@@ -7,7 +7,17 @@ class Album {
         this.description = albumAttributes.description
         this.genre = albumAttributes.genre
         Album.all.push(this)
+    }
+
+     render() {
         debugger
+        return `
+        <div data-id=${this.id}>
+        <p>${this.name}</p>
+        <h3>${this.artist}</h3>
+        <p>${this.genre.name}</p>
+        </div>
+        <br><br>`;
     }
 
 }
