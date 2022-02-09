@@ -9,7 +9,7 @@ class Album {
         Album.all.push(this)
     }
 
-     render() {
+     renderAlbumCard() {
         debugger
         return `
         <div data-id=${this.id}>
