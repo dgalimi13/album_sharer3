@@ -12,22 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
 function getAlbums() {
     fetch(endPoint)
     .then(response => response.json())
-    .then(albums => {
+    .then(albums => {  
         albums.data.forEach(album => {
-            const albumMarkup = `
-            <div data-id=${album.id}>
-            <p>${album.attributes.name}</p>
-            <h3>${album.attributes.artist}</h3>
-            <p>${album.attributes.genre.name}</p>
-            </div>
-            <br><br>`;
-
-            document.querySelector('#album-container').innerHTML += albumMarkup
+            render(album)
         })
     })
 }
 
-function render() {
+function render(album) {
     const albumMarkup = `
     <div data-id=${album.id}>
     <p>${album.attributes.name}</p>
