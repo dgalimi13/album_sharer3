@@ -10,7 +10,7 @@ class Album {
     }
 
      renderAlbumCard() {
-        debugger
+        
         return `
         <div data-id=${this.id}>
         <p>${this.name}</p>

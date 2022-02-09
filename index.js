@@ -44,8 +44,9 @@ function postFetch(name, artist, description, genre_id) {
     })
     .then(response => response.json())
     .then(album => {
-        console.log(album)
+        console.log(album);
         const albumData = album.data
-        render(albumData)
+        let newAlbum = new Album(albumData, albumData.attributes)
+        document.querySelector('#album-container').innerHTML += newAlbum.renderAlbumCard()
     })
 }
