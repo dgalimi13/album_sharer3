@@ -1,7 +1,7 @@
 const endPoint = "http://localhost:3000/api/v1/albums"
 
 document.addEventListener('DOMContentLoaded', () => {
-    getAlbums()
+    getAlbums() 
 
     const createAlbumForm = document.querySelector("#create-album-form")
 
@@ -55,7 +55,7 @@ function postFetch(name, artist, description, genre_id) {
     .then(response => response.json())
     .then(album => {
         console.log(album)
-        const albumData = album.data.attributes
+        const albumData = album.data
         render(albumData)
     })
 }
