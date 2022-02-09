@@ -14,6 +14,8 @@ function getAlbums() {
     .then(response => response.json())
     .then(albums => {  
         albums.data.forEach(album => {
+            
+            let newAlbum = new Album(album, album.attributes)
             render(album)
         })
     })
