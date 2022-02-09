@@ -6,6 +6,10 @@ class Album {
         this.artist = albumAttributes.artist
         this.description = albumAttributes.description
         this.genre = albumAttributes.genre
+        Album.all.push(this)
+        debugger
     }
 
 }
+
+Album.all = [];
