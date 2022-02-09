@@ -54,16 +54,8 @@ function postFetch(name, artist, description, genre_id) {
     })
     .then(response => response.json())
     .then(album => {
+        console.log(album)
         const albumData = album.data.attributes
-        
-        const albumMarkup = `
-            <div data-id=${album.id}>
-            <p>${albumData.name}</p>
-            <h3>${albumData.artist}</h3>
-            <p>${albumData.genre.name}</p>
-            </div>
-            <br><br>`;
-
-            document.querySelector('#album-container').innerHTML += albumMarkup
+        render(albumData)
     })
 }
