@@ -1,24 +1,3 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+this application is used for creating a new album with an existing genre to assosiate it to using a form rendered in index.html. the user will be able to give the album a name, description and artist as well as pick its genre using a select menu. Upon hitting submit the album will be added the rails backend database and using javascript the DOM will be manipulated to show the Album with its properties and assosiations on screen.
