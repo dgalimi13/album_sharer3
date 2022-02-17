@@ -1,18 +1,16 @@
-// const deleteUrl = "http://localhost:3000/api/v1/albums/:id"
+
 const endPoint = "http://localhost:3000/api/v1/albums"
-// const deleteAlbumForm = document.querySelector("#delete-album-form")
+
 
 document.addEventListener('DOMContentLoaded', () => {
     
     getAlbums() 
     
     const createAlbumForm = document.querySelector("#create-album-form")
-    const deleteAlbumForm = document.querySelector(".delete-button")
+    
 
     createAlbumForm.addEventListener("submit", (e) => 
     createFormHandler(e))
-
-    if (deleteAlbumForm) {deleteAlbumForm.addEventListener("click", (e) => deleteFormHandler(e))}
 
 })
 
@@ -36,6 +34,10 @@ function getAlbums() {
             let newAlbum = new Album(album, album.attributes)
             document.querySelector("#album-container").innerHTML += albumMarkup
         })
+        document.querySelectorAll(".delete-button").forEach((button) =>  {
+            button.addEventListener("click", (e) => deleteFormHandler(e))
+        })
+        
     })
 }
 
@@ -53,7 +55,7 @@ function createFormHandler(e) {
 
 function deleteFormHandler(e) {
     console.log("delete")
-    // deleteFetch()
+    deleteFetch(e.target.dataset.id)
 }
 
 function postFetch(name, artist, description, genre_id) {
@@ -74,18 +76,12 @@ function postFetch(name, artist, description, genre_id) {
         let newAlbum = new Album(albumData, albumData.attributes)
         document.querySelector('#album-container').innerHTML += newAlbum.renderAlbumCard()
     })
-
-    // const deleteAlbumForm = document.querySelector("#delete-album-form")
-
-    // deleteAlbumForm.addEventListener("submit", (e) => 
-    // deleteFormHandler(e))
+}
 
 function deleteFetch(albumId) {
     fetch(endPoint + '/' + albumId, {
         method: 'DELETE'
         }) 
-       .then(response => response.json())
        .then(res => console.log(res)) 
         }
 
-}

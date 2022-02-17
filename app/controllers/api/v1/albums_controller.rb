@@ -14,8 +14,9 @@ class Api::V1::AlbumsController < ApplicationController
         end 
     end 
 
-    def delete
-        Album.destroy(params[:id])
+    def destroy
+        album = Album.find(params[:id])
+        album.destroy
     end 
 
     private
