@@ -55,7 +55,10 @@ function createFormHandler(e) {
 
 function deleteFormHandler(e) {
     console.log("delete")
-    deleteFetch(e.target.dataset.id)
+    const number = e.target.dataset.id
+    deleteFetch(number)
+    document.querySelector("[data-id=" + CSS.escape(number) + "]").remove();
+
 }
 
 function postFetch(name, artist, description, genre_id) {
